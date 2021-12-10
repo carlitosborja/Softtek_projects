@@ -21,4 +21,4 @@ This is only a .txt file which includes the command lines necesarry to perform c
 
 ### Other files
 
-In the tasks_solutions.ipynb you will find as an examples, the solution to the tasks that were solved using the Python_pandas_project module.
+In the tasks_solutions.ipynb you will find, as examples, the solutions to the tasks that were solved using the Python_pandas_project module.
