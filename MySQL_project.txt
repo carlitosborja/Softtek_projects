@@ -1,0 +1,51 @@
+CREATE TABLE EmployeeDetails (EmpId INTEGER, FullName VARCHAR(20), ManagerId INTEGER, DateOfJoining DATE, City VARCHAR(20));
+INSERT INTO EmployeeDetails VALUES(121, "John Snow", 321, STR_TO_DATE('01/31/2014', '%m/%d/%Y'), 'Toronto');
+INSERT INTO EmployeeDetails VALUES(321, "Walter White", 986, STR_TO_DATE('01/30/2015', '%m/%d/%Y'), 'San Francisco');
+SELECT * FROM EmployeeDetails;
+
+CREATE TABLE EmployeeSalary (EmpId INTEGER, Project VARCHAR(5), Salary INTEGER, Variable INTEGER);
+INSERT INTO EmployeeSalary VALUES(121, 'P1', 8000, 500);
+INSERT INTO EmployeeSalary VALUES(321, 'P2', 10000, 1000);
+INSERT INTO EmployeeSalary VALUES(421, 'P1', 12000, 0);
+SELECT * FROM EmployeeSalary;
+
+SELECT FullName,City 
+FROM EmployeeDetails INNER JOIN EmployeeSalary ON EmployeeSalary.EmpId = EmployeeDetails.EmpId
+WHERE Project = 'P1';
+
+update EmployeeSalary INNER JOIN EmployeeDetails ON EmployeeSalary.EmpId = EmployeeDetails.EmpId
+SET EmployeeSalary.Variable = 1500
+WHERE EmployeeDetails.City = 'San Francisco';
+
+SELECT * FROM EmployeeSalary;
+
+SELECT FullName, Salary + Variable AS TotalSalary
+FROM EmployeeDetails INNER JOIN EmployeeSalary ON EmployeeSalary.EmpId = EmployeeDetails.EmpId;
+
+
+
+CREATE TABLE Workers (WORKER_ID INTEGER, FIRST_NAME VARCHAR(20), LAST_NAME VARCHAR(20), SALARY INTEGER, JOINING_DATE DATE, DEPARTMENT VARCHAR(20));
+INSERT INTO Workers VALUES(001, 'Monika', 'Arora', 100000, STR_TO_DATE('2014-02-20 09:00:00', '%Y-%m-%d %H:%i:%s'), 'HR');
+INSERT INTO Workers VALUES(002, 'Niharika', 'Verma', 80000, STR_TO_DATE('2014-06-11 09:00:00', '%Y-%m-%d %H:%i:%s'), 'Admin');
+INSERT INTO Workers VALUES(003, 'Vishal', 'Singhal', 300000, STR_TO_DATE('2014-02-20 09:00:00', '%Y-%m-%d %H:%i:%s'), 'Engineering');
+INSERT INTO Workers VALUES(004, 'Amitabh', 'Singh', 500000, STR_TO_DATE('2014-02-20 09:00:00', '%Y-%m-%d %H:%i:%s'), 'Account');
+INSERT INTO Workers VALUES(005, 'Vishant', 'Kumar', 450000, STR_TO_DATE('2015-02-01 09:00:00', '%Y-%m-%d %H:%i:%s'), 'Engineering');
+
+CREATE TABLE Worker_Bonus (WORKER_REF_ID INTEGER, BONUS_DATE DATE, BONUS_AMOUNT INTEGER);
+INSERT INTO Worker_Bonus VALUES(1, STR_TO_DATE('2016-02-20 00:00:00', '%Y-%m-%d %H:%i:%s'), 5000);
+INSERT INTO Worker_Bonus VALUES(2, STR_TO_DATE('2016-06-11 00:00:00', '%Y-%m-%d %H:%i:%s'), 3000);
+INSERT INTO Worker_Bonus VALUES(3, STR_TO_DATE('2016-02-20 00:00:00', '%Y-%m-%d %H:%i:%s'), 4000);
+
+SELECT DISTINCT DEPARTMENT FROM Workers;
+
+SELECT CONCAT(FIRST_NAME, ' ' ,LAST_NAME) AS "Full Name" FROM Workers;
+
+SELECT CONCAT(FIRST_NAME, ' ' ,LAST_NAME) AS "Full Name" 
+FROM Workers
+WHERE SALARY BETWEEN 300000 AND 500000;
+
+SELECT FIRST_NAME FROM Workers INNER JOIN Worker_Bonus ON WORKER_ID = WORKER_REF_ID
+ORDER BY BONUS_AMOUNT DESC LIMIT 1;
+
+SELECT SALARY FROM Workers
+ORDER BY SALARY DESC LIMIT 1, 1;
