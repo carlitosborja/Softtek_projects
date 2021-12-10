@@ -3,13 +3,11 @@ Here you can find the two projects that Softtek asked me to develop for my Softt
 
 There are two projects in this repository:
 * Python_pandas_project
-
-  For using this modules functions, you have to import the module (Python_pandas_project) into your Python script or notebook.
-  Keep in mind that this module file should be in the same path as your Python script or notebook.
-  
 * MySQL_project
 
 ## Python_pandas_project
+
+For using this modules functions, you have to import the module (Python_pandas_project) into your Python script or notebook. Keep in mind that this module file should be in the same path as your Python script or notebook.
 
 This is a module that includes the next functions, in order to give solution to the three Python / pandas tasks presented by Softtek.
 
