@@ -7,7 +7,7 @@ There are two projects in this repository:
 
 ## Python_pandas_project
 
-For using this modules functions, you have to import the module (Python_pandas_project) into your Python script or notebook. Keep in mind that this module file should be in the same path as your Python script or notebook.
+For using this modules functions, you have to import the module (Python_pandas_project) into your Python script or notebook. Keep in mind that this module file should be in the same folder as your Python script or notebook.
 
 This is a module that includes the next functions, in order to give solution to the three Python / pandas tasks presented by Softtek.
 
@@ -16,4 +16,9 @@ This is a module that includes the next functions, in order to give solution to 
 * df_status: given a dataframe with order, its articles and article's status (shipped, pending or cancelled) returns the order overall status.
 
 ## MySQL_project
+
 This is only a .txt file which includes the command lines necesarry to perform cthe requested queries and statements on MySQL.
+
+### Other files
+
+In the tasks_solutions.ipynb you will find as an examples, the solution to the tasks that were solved using the Python_pandas_project module.
